@@ -1,0 +1,10 @@
+# Documentation scaffold; no new progression values or runtime schema.
+status: DRAFT
+purpose: Navigation to existing baseline progression data pending CANON UPDATE.
+baseline_catalog: genome_v1.yaml
+baseline_sections:
+  - life_stages
+  - resources
+  - actions
+  - expeditions
+implementation_gate: Do not implement unresolved design before CANON UPDATE.
