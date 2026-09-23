@@ -10,7 +10,7 @@ Status: APPROVED
 
 ## Baseline design blocks
 
-Статус и версия разделены: используются только APPROVED, DRAFT, OPEN, NOT_STARTED. APPROVED v0.1 не означает, что пробелы исходников решены. Подразделы наследуют только уже заданный scope одобрения; новые решения этой реорганизацией не принимаются.
+Статус и версия разделены: используются только APPROVED, DRAFT, OPEN, NOT_STARTED. APPROVED v0.1 не означает, что пробелы исходников решены. Подразделы наследуют только уже заданный scope одобрения; новые согласованные решения зафиксированы отдельно в CANON UPDATE 001; APPROVED не распространяется на неописанную детализацию.
 
 | Design block | Status | Baseline version | Canonical docs |
 |---|---|---|---|
@@ -19,7 +19,8 @@ Status: APPROVED
 | Creature Model | APPROVED | v0.1 | [Creature](creatures/CREATURE_MODEL.md), [Morphotypes](creatures/MORPHOTYPES.md), [Ecotypes](creatures/ECOTYPES.md) |
 | Breeding principles | APPROVED | v0.1 | [Breeding](genetics/BREEDING_SYSTEM.md), [Lineage](genetics/LINEAGE_SYSTEM.md) |
 | Mutation model | APPROVED | v0.1 | [Mutation](genetics/MUTATION_SYSTEM.md) |
-| Combat | NOT_STARTED | — | [Core](combat/COMBAT_CORE.md), [Stats](combat/COMBAT_STATS.md), [Roles](combat/ROLES.md), [Counters](combat/COUNTERS.md), [Genetic Abilities](combat/GENETIC_ABILITIES.md) |
+| Genetic diversity principles | APPROVED | DIV-001–DIV-005 only | [Diversity Model](genetics/GENETIC_DIVERSITY_MODEL.md) |
+| Combat | DRAFT | COMBAT-001–COMBAT-004 | [Core](combat/COMBAT_CORE.md), [Stats](combat/COMBAT_STATS.md), [Roles](combat/ROLES.md), [Counters](combat/COUNTERS.md), [Genetic Abilities](combat/GENETIC_ABILITIES.md) |
 | Combat Balance | NOT_STARTED | — | [Combat Balance stub](balance/BALANCE_MODEL.md#combat-balance) |
 | Progression | DRAFT | — | [Progression](progression/PROGRESSION.md), [Pacing](progression/PACING.md), [Collection](creatures/COLLECTION_SYSTEM.md) |
 | Economy | DRAFT | — | [Economy](economy/ECONOMY.md) |
@@ -29,7 +30,8 @@ Status: APPROVED
 
 ## Работа с каноном
 
-- [DECISIONS](DECISIONS.md) — только решения, уже зафиксированные в baseline.
+- [DECISIONS](DECISIONS.md) — решения baseline и COMBAT/DIV из CANON UPDATE 001.
+- [CANON UPDATE 001](updates/GENOME_CANON_UPDATE_001.md) — основание новых решений; имеет приоритет только для явно затронутых пунктов.
 - [OPEN_QUESTIONS](OPEN_QUESTIONS.md) — противоречия, неполные правила и будущие решения; все имеют Status: OPEN.
 - [CHANGELOG](CHANGELOG.md) — организационные изменения и consistency review.
 - [CONTRIBUTING_DESIGN](../CONTRIBUTING_DESIGN.md) — правила CANON UPDATE.
@@ -38,13 +40,20 @@ Status: APPROVED
 ## Machine-readable catalogs
 
 - [genome_v1.yaml](../data/genome_v1.yaml) — исходный `genome_v1_catalog.yaml`, перенесён без изменения байтов. Содержит также исходные actions, resources и expeditions; они не дублируются в другом каталоге.
-- [combat_v1.yaml](../data/combat_v1.yaml) — NOT_STARTED, stub.
+- [combat_v1.yaml](../data/combat_v1.yaml) — DRAFT: только team size, auto/async, три позиции и round-based model. Не исполнимый каталог.
 - [abilities_v1.yaml](../data/abilities_v1.yaml) — NOT_STARTED, stub.
 - [progression_v1.yaml](../data/progression_v1.yaml) — DRAFT, навигационная заготовка без новых значений.
 
-## Следующий design block
+## Точка плана и следующий design block
 
-Combat — NOT_STARTED. Это обозначение следующего блока для отдельной совместной design-сессии, не утверждение его механик или изменения MVP scope. До CANON UPDATE остаются в силе ограничения исходного baseline (экспедиции без боёв; PvP вне первого playable). В этой задаче Combat не проектируется. См. OQ-017.
+- Шаг 1: baseline документации завершён.
+- Шаг 2A: COMBAT-001–COMBAT-004 зафиксированы; Combat целиком DRAFT. Round/targeting/victory details остаются OPEN. Детальные stubs и Combat Balance сохраняют NOT_STARTED, поскольку их дизайн не утверждён.
+- Шаг 2B: DIV-001–DIV-005 APPROVED только как принципы; Content Bible и баланс не завершены.
+- Следующий обсуждаемый блок — 2C: боевые характеристики, отдельные функции и trade-off, затем ecotypes/counters.
+- Шаг 3: полное независимое ревью Combat ещё не начинается.
+- Шаг 4: полный Genetic Content Bible и расширение генома позже. APPROVED у существующего каталога v0.1 не означает утверждения будущего полного каталога.
+
+OQ-017 остаётся OPEN: Combat разрешено документировать, но точная комплектация first playable и разрешение писать код не согласованы. Прежнее «PvP вне first playable» не запрещает design-работу. Новые OQ-020–OQ-024 описывают недостающие детали основы и разнообразия. OQ-001–OQ-016, OQ-018–OQ-019 остаются OPEN; update не задаёт вероятности, формулы, expression, pedigree или новые размеры каталога. Экономические ограничения и конкурентный эффект мест/инкубаторов также не доказаны (OQ-018).
 
 ## Baseline sources и карта переноса
 
@@ -76,4 +85,4 @@ Combat — NOT_STARTED. Это обозначение следующего бл�
 | [Monetization](economy/MONETIZATION.md) | 31 | — |
 | [Simulation Spec](balance/SIMULATION_SPEC.md) | 42 | — |
 
-Вводная GDS сохранена в Game Vision; вводная DB — в Terminology. BALANCE_MODEL содержит ссылки на существующие определения; combat-документы — только stubs.
+Вводная GDS сохранена в Game Vision; вводная DB — в Terminology. BALANCE_MODEL содержит ссылки на существующие определения. COMBAT_CORE обновлён по Update 001; остальные combat-документы сохраняются как stubs. Новый GENETIC_DIVERSITY_MODEL содержит DIV-001–DIV-005; это дополнение к карте исходного baseline, а не перенос или изменение исходных разделов.

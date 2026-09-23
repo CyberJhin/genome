@@ -1,6 +1,6 @@
 # GENOME
 
-Genetics-first collection game. Текущий этап — организация design baseline v0.1.
+Genetics-first collection game. Baseline v0.1 организован; CANON UPDATE 001 фиксирует основу Combat (Combat в целом DRAFT) и принципы генетического разнообразия.
 
 Главная точка входа: [docs/INDEX.md](docs/INDEX.md).
 

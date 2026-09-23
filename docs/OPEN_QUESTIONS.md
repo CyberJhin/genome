@@ -2,7 +2,7 @@
 
 Status: OPEN
 
-Вопросы обнаружены при организации baseline; ни один не решён этой задачей. Указание APPROVED v0.1 у блока не снимает перечисленные ограничения. GDS и DB означают сохранённые [Game Design Spec](source/GENOME_GAME_DESIGN_SPEC_v0.1.md) и [Domain Bible](source/GENOME_DOMAIN_BIBLE_v0.1.md). Каталог — [data/genome_v1.yaml](../data/genome_v1.yaml). Нужен явный CANON UPDATE; значения и примеры пока сохранены без исправления.
+Вопросы baseline и CANON UPDATE 001. Update уточняет OQ-017 и добавляет OQ-020–OQ-024; ни один прежний вопрос не закрыт. Указание APPROVED v0.1 у блока не снимает перечисленные ограничения. GDS и DB означают сохранённые [Game Design Spec](source/GENOME_GAME_DESIGN_SPEC_v0.1.md) и [Domain Bible](source/GENOME_DOMAIN_BIBLE_v0.1.md). Каталог — [data/genome_v1.yaml](../data/genome_v1.yaml). Нужен явный CANON UPDATE; значения и примеры пока сохранены без исправления.
 
 ## OQ-001 — Как согласовать примерные ID и генетические сценарии GDS с каталогом v0.1?
 
@@ -196,15 +196,15 @@ Why decision is required:
 
 Do not implement before resolved.
 
-## OQ-017 — Как будущий Combat соотносится с утверждёнными границами baseline?
+## OQ-017 — Как Combat входит в first playable и когда разрешена реализация?
 
 Status: OPEN
 
 Context:
-Текущий заданный статус Combat и Combat Balance — NOT_STARTED. GDS §2 исключает RPG с HP/ATK/DEF progression, §26 говорит No combat system required, §40 исключает PvP из first playable; DB §18 задаёт MVP expeditions без боёв. Запрошены только stubs для будущего блока.
+В исходном baseline Combat был NOT_STARTED: GDS §2 исключает RPG с HP/ATK/DEF progression, §26 говорит No combat system required, §40 исключает PvP из first playable; DB §18 задаёт MVP expeditions без боёв. [CANON UPDATE 001](updates/GENOME_CANON_UPDATE_001.md) разрешает документировать Combat и утверждает только COMBAT-001–COMBAT-004; общий статус Combat теперь DRAFT. Старое «PvP вне first playable» не запрещает эту design-работу. DIV-001–DIV-005 задают принципы будущего разнообразия, но не утверждают весь Combat или новый MVP scope.
 
 Why decision is required:
-До отдельного CANON UPDATE нельзя вывести из структуры папок разрешение менять MVP scope, проектировать Combat или переносить существующие derived stats в боевые.
+Точная комплектация first playable и разрешение писать код остаются OPEN. Из одобрения основы нельзя вывести готовность характеристик, способностей, формул, баланса, симулятора или всей реализации. Детали боя зарегистрированы отдельно в OQ-020–OQ-024.
 
 Do not implement before resolved.
 
@@ -229,5 +229,65 @@ GDS §39 рекомендует ~60–70 total initial alleles, 5–8 mutation-o
 
 Why decision is required:
 76 против ~60–70 нельзя автоматически объявить ошибкой или исправить удалением alleles. Нужно уточнить scope и статус рекомендаций о polygenic traits относительно конкретного каталога.
+
+Do not implement before resolved.
+
+## OQ-020 — Как устроены асинхронный защитный состав, информация о противнике, matchmaking и награды?
+
+Status: OPEN
+
+Context:
+COMBAT-002 в [Update 001](updates/GENOME_CANON_UPDATE_001.md) утверждает auto/async и подготовку состава до боя. Точная модель защитного состава, доступной информации, подбора соперников и наград явно оставлена OPEN.
+
+Why decision is required:
+Нельзя выводить эти правила из слова asynchronous. Конкретные economy values остаются также в OQ-018; утверждённых rewards или matchmaking algorithm нет.
+
+Do not implement before resolved.
+
+## OQ-021 — Как работают targeting exceptions и замещение FRONT?
+
+Status: OPEN
+
+Context:
+COMBAT-003 утверждает три позиции, FRONT как стандартную цель обычных одиночных атак и переход одного из задних существ вперёд после выбытия FRONT. FRONT не обязательный класс Tank. Исключения через способности/статусы допустимы только при явном задании.
+
+Why decision is required:
+Не определены сами исключения, выбор заднего существа, момент перемещения и порядок взаимодействия со статусами. Порядок BACK_LEFT/BACK_RIGHT в списке позиций не является priority rule.
+
+Do not implement before resolved.
+
+## OQ-022 — Каковы фазы раунда, случайные события, условия победы и ничьей?
+
+Status: OPEN
+
+Context:
+COMBAT-004 задаёт дискретные раунды и воспроизводимость при одинаковых исходных данных, версии правил и RNG seed. Анимация не влияет на результат.
+
+Why decision is required:
+OPEN: порядок фаз, инициатива, дополнительные действия, набор случайных событий, лимит раундов, правила победы/ничьих и взаимодействия со статусами. Seed не означает утверждения критов, промахов или иных конкретных механик. Правила Charge также не утверждены update.
+
+Do not implement before resolved.
+
+## OQ-023 — Какие боевые характеристики и ограничения выражают цену специализации?
+
+Status: OPEN
+
+Context:
+DIV-002 и DIV-005 требуют цены сильной сборки и компенсации слабости, но не штрафа каждому allele и не нормализации общей суммы stats. Шаг 2C — обсуждение боевых характеристик, их отдельных функций и trade-off.
+
+Why decision is required:
+Не утверждены окончательный набор характеристик (включая прежний ориентир из восьми), названия, формулы, бюджеты, ресурсы и ограничения совместимости. OQ-003 остаётся отдельным вопросом неполных существующих derived stats; их нельзя автоматически объявить боевыми.
+
+Do not implement before resolved.
+
+## OQ-024 — Как семейства генов связаны с loci, типами, ролями, способностями и counters?
+
+Status: OPEN
+
+Context:
+DIV-001 утверждает шесть логических семейств без назначения loci; DIV-003 различает morphotype, биологическую адаптацию и боевую специализацию; DIV-005 требует разных генетических путей к роли. Примерные названия и способы выживания не утверждены как контент.
+
+Why decision is required:
+OPEN: mapping семейств к существующим/будущим loci, Primary/Secondary, список боевых архитектур и связь с текущими ecotype IDs, конкретные способности и counter matrix. Текущие IDs сохраняются, размер каталога не меняется (OQ-019). Проверка поведенческого/стратегического разнообразия — цель будущей методики OQ-016, а не уже доказанный результат.
 
 Do not implement before resolved.

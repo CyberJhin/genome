@@ -1,4 +1,13 @@
-status: NOT_STARTED
-purpose: Future approved combat catalog.
-canonical_decisions: []
+# CANON UPDATE 001, COMBAT-001..COMBAT-004.
+# Documentation-only structural values; not an executable combat catalog.
+status: DRAFT
+purpose: Record only the approved combat foundation.
+team_size: 3
+automatic: true
+asynchronous: true
+positions:
+  - FRONT
+  - BACK_LEFT
+  - BACK_RIGHT
+combat_model: ROUND_BASED
 implementation_gate: Do not implement before design approval.

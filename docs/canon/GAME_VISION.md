@@ -9,6 +9,10 @@ Product thesis и исходные границы первого playable.
 
 Ниже — дословно перенесённые разделы baseline. Статус APPROVED фиксирует заданный baseline, но не закрывает OPEN questions и не утверждает недостающие значения. Примеры, ориентиры и будущие варианты сохраняют исходный смысл.
 
+## Уточнение CANON UPDATE 001
+
+[Update 001](../updates/GENOME_CANON_UPDATE_001.md) фиксирует [основу Combat](../combat/COMBAT_CORE.md) и [принципы разнообразия](../genetics/GENETIC_DIVERSITY_MODEL.md), сохраняя genetics-first thesis. Он имеет приоритет только для явно затронутых пунктов. Историческое «PvP вне first playable» ниже не запрещает документирование Combat; точный MVP scope и разрешение реализации остаются OPEN (OQ-017). Combat целиком — DRAFT.
+
 Источник: [GENOME_GAME_DESIGN_SPEC_v0.1.md](../source/GENOME_GAME_DESIGN_SPEC_v0.1.md), разделы 0, 1, 40, 46.
 
 <!-- baseline:GDS:preamble:start -->
