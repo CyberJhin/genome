@@ -1,0 +1,1445 @@
+version: '0.1'
+genome_schema_version: 1
+species:
+  id: GENOMORPH
+  display_name: Genomorph
+  lore_name: Genomorphis modularis
+  ploidy: 2
+  reproductive_model: hermaphroditic
+life_stages:
+- id: EGG
+  duration_minutes: 120
+- id: JUVENILE
+  duration_minutes: 120
+- id: ADOLESCENT
+  duration_minutes: 240
+- id: ADULT
+  duration_minutes: null
+chromosomes:
+- id: CHR1
+  name: MORPHOLOGY
+  length_cm: 100
+- id: CHR2
+  name: COLOR_PATTERN
+  length_cm: 100
+- id: CHR3
+  name: FACE_SURFACE
+  length_cm: 100
+- id: CHR4
+  name: ADAPTATION
+  length_cm: 100
+- id: CHR5
+  name: BEHAVIOR_CAPACITY
+  length_cm: 100
+- id: CHR6
+  name: METABOLISM_HEALTH
+  length_cm: 100
+loci:
+  BDY1:
+    chromosome: CHR1
+    position_cm: 8
+    category: VISUAL
+    expression_model: INCOMPLETE_DOMINANCE_VECTOR
+    founder_frequencies:
+      b0: 0.45
+      b1: 0.35
+      b2: 0.2
+    alleles:
+      b0:
+        name: Round
+        shape_vector:
+          width: 1.0
+          height: 1.0
+          lower_mass: 0.0
+      b1:
+        name: Pear
+        shape_vector:
+          width: 0.95
+          height: 1.05
+          lower_mass: 0.15
+      b2:
+        name: Tall
+        shape_vector:
+          width: 0.85
+          height: 1.15
+          lower_mass: -0.05
+  SIZ1:
+    chromosome: CHR1
+    position_cm: 31
+    category: VISUAL_QUANTITATIVE
+    expression_model: ADDITIVE
+    founder_frequencies:
+      s0: 0.25
+      s1: 0.55
+      s2: 0.2
+    alleles:
+      s0:
+        name: Small
+        scale_effect: -0.08
+      s1:
+        name: Medium
+        scale_effect: 0.0
+      s2:
+        name: Large
+        scale_effect: 0.08
+  APP1:
+    chromosome: CHR1
+    position_cm: 61
+    category: VISUAL
+    expression_model: CODOMINANT_COMPOSITION
+    founder_frequencies:
+      a0: 0.3
+      a1: 0.4
+      a2: 0.3
+    alleles:
+      a0:
+        name: Antennae
+        renderer_asset: appendage_antennae
+        trait_modifiers:
+          curiosity_display: 5
+      a1:
+        name: Leaves
+        renderer_asset: appendage_leaves
+        trait_modifiers:
+          photosynthesis: 10
+      a2:
+        name: Fins
+        renderer_asset: appendage_fins
+        trait_modifiers:
+          aquatic: 10
+  TAI1:
+    chromosome: CHR1
+    position_cm: 88
+    category: VISUAL
+    expression_model: COMPLETE_DOMINANCE
+    founder_frequencies:
+      t0: 0.45
+      t1: 0.4
+      t2: 0.15
+    alleles:
+      t0:
+        name: Nub
+        renderer_asset: tail_nub
+      t1:
+        name: Curl
+        renderer_asset: tail_curl
+      t2:
+        name: Fork
+        renderer_asset: tail_fork
+    dominance_order:
+    - t2
+    - t1
+    - t0
+  COL1:
+    chromosome: CHR2
+    position_cm: 5
+    category: VISUAL
+    expression_model: PALETTE_BLEND
+    founder_frequencies:
+      c0: 0.45
+      c1: 0.33
+      c2: 0.22
+      c3: 0.0
+    alleles:
+      c0:
+        name: Mint
+        palette_anchor: '#66DDB2'
+      c1:
+        name: Amber
+        palette_anchor: '#F1B85B'
+      c2:
+        name: Azure
+        palette_anchor: '#62A8E8'
+      c3:
+        name: Violet
+        palette_anchor: '#9C6FE8'
+        mutation_only: true
+  SEC1:
+    chromosome: CHR2
+    position_cm: 24
+    category: VISUAL
+    expression_model: COMPLETE_DOMINANCE
+    founder_frequencies:
+      d0: 0.55
+      d1: 0.3
+      d2: 0.15
+    alleles:
+      d0:
+        name: Cream
+        palette_anchor: '#F4E8C8'
+      d1:
+        name: Rose
+        palette_anchor: '#F2A4B8'
+      d2:
+        name: Charcoal
+        palette_anchor: '#414957'
+    dominance_order:
+    - d2
+    - d1
+    - d0
+  PAT1:
+    chromosome: CHR2
+    position_cm: 52
+    category: VISUAL
+    expression_model: CODOMINANT_PATTERN
+    founder_frequencies:
+      p0: 0.5
+      p1: 0.3
+      p2: 0.2
+      p3: 0.0
+    alleles:
+      p0:
+        name: Clear
+        renderer_pattern: null
+      p1:
+        name: Spots
+        renderer_pattern: pattern_spots
+      p2:
+        name: Stripes
+        renderer_pattern: pattern_stripes
+      p3:
+        name: Fractal
+        renderer_pattern: pattern_fractal
+        mutation_only: true
+  GLW1:
+    chromosome: CHR2
+    position_cm: 82
+    category: VISUAL
+    expression_model: DOSAGE_WITH_SPECIAL
+    founder_frequencies:
+      g0: 0.7
+      g1: 0.25
+      g2: 0.05
+      g3: 0.0
+    alleles:
+      g0:
+        name: None
+        glow_weight: 0
+      g1:
+        name: SoftGlow
+        glow_weight: 1
+      g2:
+        name: PulseGlow
+        glow_weight: 2
+      g3:
+        name: AuroraGlow
+        glow_weight: 5
+        mutation_only: true
+        renderer_shader: aurora
+  EYE1:
+    chromosome: CHR3
+    position_cm: 12
+    category: VISUAL
+    expression_model: ADDITIVE_ROUNDED
+    founder_frequencies:
+      e1: 0.1
+      e2: 0.75
+      e3: 0.15
+    alleles:
+      e1:
+        name: OneEye
+        numeric_value: 1
+      e2:
+        name: TwoEyes
+        numeric_value: 2
+      e3:
+        name: ThreeEyes
+        numeric_value: 3
+  EYS1:
+    chromosome: CHR3
+    position_cm: 35
+    category: VISUAL
+    expression_model: COMPLETE_DOMINANCE
+    founder_frequencies:
+      y0: 0.55
+      y1: 0.3
+      y2: 0.15
+    alleles:
+      y0:
+        name: Round
+        renderer_asset: eyes_round
+      y1:
+        name: Almond
+        renderer_asset: eyes_almond
+      y2:
+        name: Diamond
+        renderer_asset: eyes_diamond
+    dominance_order:
+    - y2
+    - y1
+    - y0
+  SKN1:
+    chromosome: CHR3
+    position_cm: 63
+    category: VISUAL
+    expression_model: COMPLETE_DOMINANCE
+    founder_frequencies:
+      k0: 0.5
+      k1: 0.25
+      k2: 0.25
+      k3: 0.0
+    alleles:
+      k0:
+        name: Smooth
+        renderer_surface: smooth
+        trait_modifiers:
+          heat: 4
+      k1:
+        name: Fuzzy
+        renderer_surface: fuzzy
+        trait_modifiers:
+          cold: 8
+      k2:
+        name: Veined
+        renderer_surface: veined
+        trait_modifiers:
+          photosynthesis: 5
+      k3:
+        name: Prism
+        renderer_surface: prism
+        mutation_only: true
+    dominance_order:
+    - k3
+    - k2
+    - k1
+    - k0
+  MRK1:
+    chromosome: CHR3
+    position_cm: 90
+    category: VISUAL
+    expression_model: COMPLETE_DOMINANCE
+    founder_frequencies:
+      m0: 0.5
+      m1: 0.35
+      m2: 0.15
+    alleles:
+      m0:
+        name: None
+        renderer_marking: null
+      m1:
+        name: Blush
+        renderer_marking: marking_blush
+      m2:
+        name: Star
+        renderer_marking: marking_star
+    dominance_order:
+    - m2
+    - m1
+    - m0
+  AQU1:
+    chromosome: CHR4
+    position_cm: 10
+    category: ADAPTATION
+    expression_model: ADDITIVE
+    founder_frequencies:
+      q0: 0.55
+      q1: 0.35
+      q2: 0.1
+      q3: 0.0
+    alleles:
+      q0:
+        name: Baseline
+        aquatic_effect: 0
+      q1:
+        name: Aquatic
+        aquatic_effect: 25
+      q2:
+        name: Specialist
+        aquatic_effect: 45
+      q3:
+        name: Abyssal
+        aquatic_effect: 65
+        mutation_only: true
+  CLD1:
+    chromosome: CHR4
+    position_cm: 37
+    category: ADAPTATION
+    expression_model: ADDITIVE
+    founder_frequencies:
+      c0: 0.55
+      c1: 0.35
+      c2: 0.1
+      c3: 0.0
+    alleles:
+      c0:
+        name: Baseline
+        cold_effect: 0
+      c1:
+        name: Adapted
+        cold_effect: 25
+      c2:
+        name: Specialist
+        cold_effect: 45
+      c3:
+        name: FrostCore
+        cold_effect: 65
+        mutation_only: true
+  HOT1:
+    chromosome: CHR4
+    position_cm: 66
+    category: ADAPTATION
+    expression_model: ADDITIVE
+    founder_frequencies:
+      h0: 0.55
+      h1: 0.35
+      h2: 0.1
+    alleles:
+      h0:
+        name: Baseline
+        heat_effect: 0
+      h1:
+        name: Adapted
+        heat_effect: 25
+      h2:
+        name: Specialist
+        heat_effect: 45
+  PHO1:
+    chromosome: CHR4
+    position_cm: 91
+    category: ADAPTATION
+    expression_model: ADDITIVE
+    founder_frequencies:
+      f0: 0.45
+      f1: 0.4
+      f2: 0.15
+      f3: 0.0
+    alleles:
+      f0:
+        name: None
+        photosynthesis_effect: 0
+      f1:
+        name: Photoactive
+        photosynthesis_effect: 25
+      f2:
+        name: Specialist
+        photosynthesis_effect: 45
+      f3:
+        name: Blacklight
+        photosynthesis_effect: 65
+        mutation_only: true
+  ENR1:
+    chromosome: CHR5
+    position_cm: 7
+    category: QUANTITATIVE
+    expression_model: ADDITIVE
+    founder_frequencies:
+      n0: 0.25
+      n1: 0.55
+      n2: 0.2
+    alleles:
+      n0:
+        name: Low
+        energy_capacity_effect: -10
+      n1:
+        name: Standard
+        energy_capacity_effect: 0
+      n2:
+        name: High
+        energy_capacity_effect: 12
+  END1:
+    chromosome: CHR5
+    position_cm: 32
+    category: QUANTITATIVE
+    expression_model: ADDITIVE
+    founder_frequencies:
+      d0: 0.25
+      d1: 0.55
+      d2: 0.2
+    alleles:
+      d0:
+        name: Low
+        endurance_effect: -8
+      d1:
+        name: Standard
+        endurance_effect: 0
+      d2:
+        name: High
+        endurance_effect: 10
+  CUR1:
+    chromosome: CHR5
+    position_cm: 59
+    category: TEMPERAMENT
+    expression_model: ADDITIVE
+    founder_frequencies:
+      u0: 0.25
+      u1: 0.5
+      u2: 0.25
+    alleles:
+      u0:
+        name: Reserved
+        curiosity_effect: -15
+      u1:
+        name: Balanced
+        curiosity_effect: 0
+      u2:
+        name: Curious
+        curiosity_effect: 15
+  CAL1:
+    chromosome: CHR5
+    position_cm: 86
+    category: TEMPERAMENT
+    expression_model: ADDITIVE
+    founder_frequencies:
+      a0: 0.25
+      a1: 0.5
+      a2: 0.25
+    alleles:
+      a0:
+        name: Reactive
+        calmness_effect: -15
+      a1:
+        name: Balanced
+        calmness_effect: 0
+      a2:
+        name: Calm
+        calmness_effect: 15
+  MET1:
+    chromosome: CHR6
+    position_cm: 9
+    category: METABOLISM
+    expression_model: ADDITIVE
+    founder_frequencies:
+      r0: 0.2
+      r1: 0.6
+      r2: 0.2
+    alleles:
+      r0:
+        name: Inefficient
+        metabolism_effect: -10
+      r1:
+        name: Standard
+        metabolism_effect: 0
+      r2:
+        name: Efficient
+        metabolism_effect: 10
+  DEF1:
+    chromosome: CHR6
+    position_cm: 34
+    category: HIDDEN_HEALTH
+    expression_model: RECESSIVE
+    founder_frequencies:
+      M: 0.92
+      m: 0.08
+    alleles:
+      M:
+        name: Healthy
+      m:
+        name: MetabolicFragilityRisk
+        recessive_condition: METABOLIC_FRAGILITY
+  DEF2:
+    chromosome: CHR6
+    position_cm: 60
+    category: HIDDEN_HEALTH
+    expression_model: RECESSIVE
+    founder_frequencies:
+      P: 0.94
+      p: 0.06
+    alleles:
+      P:
+        name: Stable
+      p:
+        name: DermalInstabilityRisk
+        recessive_condition: DERMAL_INSTABILITY
+  IMM1:
+    chromosome: CHR6
+    position_cm: 84
+    category: HIDDEN_HEALTH
+    expression_model: RECESSIVE
+    founder_frequencies:
+      I: 0.93
+      i: 0.07
+    alleles:
+      I:
+        name: Resilient
+      i:
+        name: ImmuneFragilityRisk
+        recessive_condition: IMMUNE_FRAGILITY
+mutation:
+  per_allele_copy_rate: 0.00035
+  structural_event_rate: 0.003
+  target_offspring_any_mutation_rate: 0.02
+  edges:
+    COL1:
+      c0:
+      - to: c1
+        weight: 0.5
+      - to: c2
+        weight: 0.5
+      c1:
+      - to: c0
+        weight: 0.5
+      - to: c2
+        weight: 0.5
+      c2:
+      - to: c0
+        weight: 0.75
+      - to: c3
+        weight: 0.25
+      c3:
+      - to: c2
+        weight: 1.0
+    PAT1:
+      p0:
+      - to: p1
+        weight: 0.5
+      - to: p2
+        weight: 0.5
+      p1:
+      - to: p0
+        weight: 0.45
+      - to: p2
+        weight: 0.45
+      - to: p3
+        weight: 0.1
+      p2:
+      - to: p0
+        weight: 0.45
+      - to: p1
+        weight: 0.45
+      - to: p3
+        weight: 0.1
+      p3:
+      - to: p1
+        weight: 0.5
+      - to: p2
+        weight: 0.5
+    GLW1:
+      g0:
+      - to: g1
+        weight: 1.0
+      g1:
+      - to: g0
+        weight: 0.45
+      - to: g2
+        weight: 0.55
+      g2:
+      - to: g1
+        weight: 0.85
+      - to: g3
+        weight: 0.15
+      g3:
+      - to: g2
+        weight: 1.0
+    SKN1:
+      k0:
+      - to: k1
+        weight: 1.0
+      k1:
+      - to: k0
+        weight: 0.45
+      - to: k2
+        weight: 0.55
+      k2:
+      - to: k1
+        weight: 0.9
+      - to: k3
+        weight: 0.1
+      k3:
+      - to: k2
+        weight: 1.0
+    AQU1:
+      q0:
+      - to: q1
+        weight: 1.0
+      q1:
+      - to: q0
+        weight: 0.45
+      - to: q2
+        weight: 0.55
+      q2:
+      - to: q1
+        weight: 0.9
+      - to: q3
+        weight: 0.1
+      q3:
+      - to: q2
+        weight: 1.0
+    CLD1:
+      c0:
+      - to: c1
+        weight: 1.0
+      c1:
+      - to: c0
+        weight: 0.45
+      - to: c2
+        weight: 0.55
+      c2:
+      - to: c1
+        weight: 0.9
+      - to: c3
+        weight: 0.1
+      c3:
+      - to: c2
+        weight: 1.0
+    PHO1:
+      f0:
+      - to: f1
+        weight: 1.0
+      f1:
+      - to: f0
+        weight: 0.45
+      - to: f2
+        weight: 0.55
+      f2:
+      - to: f1
+        weight: 0.9
+      - to: f3
+        weight: 0.1
+      f3:
+      - to: f2
+        weight: 1.0
+recombination:
+  crossover_count_distribution:
+    0: 0.35
+    1: 0.45
+    2: 0.17
+    3: 0.03
+adaptation_tiers:
+- id: LOW
+  min: 0
+  max: 29
+- id: MODERATE
+  min: 30
+  max: 49
+- id: ADAPTED
+  min: 50
+  max: 69
+- id: SPECIALIZED
+  min: 70
+  max: 84
+- id: EXCEPTIONAL
+  min: 85
+  max: 100
+ecotypes:
+  BOTANICAL: photosynthesis >= 70
+  AQUATIC: aquatic >= 70
+  CRYO: cold >= 70
+  THERMAL: heat >= 70
+  LUMINOUS: glow_intensity >= 2
+  RESILIENT: endurance >= 75 and expressed_health_defects == 0
+morphotypes:
+  priority:
+  - PRISM
+  - AURORA
+  - SOLARI
+  - AMPHION
+  - AQUALIS
+  - CRYALIS
+  - PYRA
+  - VERDANT
+  - LUNARI
+  - GENERALIS
+  rules:
+    PRISM: surface == PRISM
+    AURORA: cold >= 70 and glow_intensity >= 2
+    SOLARI: photosynthesis >= 70 and glow_intensity >= 2
+    AMPHION: photosynthesis >= 60 and aquatic >= 60
+    AQUALIS: aquatic >= 70
+    CRYALIS: cold >= 70
+    PYRA: heat >= 70
+    VERDANT: photosynthesis >= 70
+    LUNARI: glow_intensity >= 2
+    GENERALIS: 'true'
+resources:
+  NUTRIENTS:
+    type: SOFT
+  RESEARCH_POINTS:
+    type: SOFT
+actions:
+  FEED:
+    nutrient_cost: 5
+    energy_gain: 25
+  PLAY:
+    energy_cost: 10
+    mood_gain: 20
+  BREED:
+    min_energy_percent: 30
+    base_cooldown_minutes: 360
+  FULL_SEQUENCE:
+    research_points_cost: 80
+  MARKER_PANEL:
+    research_points_cost: 20
+expeditions:
+  FOREST:
+    duration_minutes: 30
+    weights:
+      photosynthesis: 0.4
+      curiosity: 0.25
+      endurance: 0.35
+  TUNDRA:
+    duration_minutes: 60
+    weights:
+      cold: 0.5
+      endurance: 0.35
+      metabolism: 0.15
+  CAVE:
+    duration_minutes: 90
+    weights:
+      glow: 0.3
+      calmness: 0.25
+      endurance: 0.45
+rarity_bands:
+  COMMON:
+    min_frequency: 0.1
+  UNCOMMON:
+    min_frequency: 0.03
+    max_frequency: 0.1
+  RARE:
+    min_frequency: 0.005
+    max_frequency: 0.03
+  EXCEPTIONAL:
+    min_frequency: 0.0005
+    max_frequency: 0.005
+  ULTRA_RARE:
+    max_frequency: 0.0005
+  minimum_population_for_display: 1000
+health_conditions:
+  METABOLIC_FRAGILITY:
+    trigger:
+      locus: DEF1
+      genotype:
+      - m
+      - m
+    modifiers:
+      energy_recovery_multiplier: 0.8
+      fertility_flat: -15
+      endurance_flat: -10
+  DERMAL_INSTABILITY:
+    trigger:
+      locus: DEF2
+      genotype:
+      - p
+      - p
+    modifiers:
+      cold_flat: -6
+      heat_flat: -6
+  IMMUNE_FRAGILITY:
+    trigger:
+      locus: IMM1
+      genotype:
+      - i
+      - i
+    modifiers:
+      energy_recovery_multiplier: 0.9
+      fertility_flat: -5
+      endurance_flat: -8
+founders:
+  LAB-F01:
+    focus: VERDANT
+    genome:
+      BDY1:
+      - b0
+      - b1
+      SIZ1:
+      - s1
+      - s1
+      APP1:
+      - a1
+      - a1
+      TAI1:
+      - t0
+      - t1
+      COL1:
+      - c0
+      - c0
+      SEC1:
+      - d0
+      - d0
+      PAT1:
+      - p0
+      - p1
+      GLW1:
+      - g0
+      - g1
+      EYE1:
+      - e2
+      - e2
+      EYS1:
+      - y0
+      - y1
+      SKN1:
+      - k2
+      - k2
+      MRK1:
+      - m1
+      - m1
+      AQU1:
+      - q0
+      - q1
+      CLD1:
+      - c0
+      - c1
+      HOT1:
+      - h0
+      - h1
+      PHO1:
+      - f2
+      - f1
+      ENR1:
+      - n1
+      - n1
+      END1:
+      - d1
+      - d1
+      CUR1:
+      - u1
+      - u2
+      CAL1:
+      - a1
+      - a2
+      MET1:
+      - r1
+      - r2
+      DEF1:
+      - M
+      - M
+      DEF2:
+      - P
+      - p
+      IMM1:
+      - I
+      - I
+  LAB-F02:
+    focus: SOLARI
+    genome:
+      BDY1:
+      - b0
+      - b0
+      SIZ1:
+      - s1
+      - s2
+      APP1:
+      - a1
+      - a1
+      TAI1:
+      - t1
+      - t1
+      COL1:
+      - c1
+      - c1
+      SEC1:
+      - d0
+      - d1
+      PAT1:
+      - p0
+      - p0
+      GLW1:
+      - g1
+      - g2
+      EYE1:
+      - e2
+      - e2
+      EYS1:
+      - y0
+      - y0
+      SKN1:
+      - k2
+      - k0
+      MRK1:
+      - m1
+      - m1
+      AQU1:
+      - q0
+      - q0
+      CLD1:
+      - c0
+      - c1
+      HOT1:
+      - h0
+      - h1
+      PHO1:
+      - f2
+      - f2
+      ENR1:
+      - n1
+      - n2
+      END1:
+      - d1
+      - d1
+      CUR1:
+      - u1
+      - u2
+      CAL1:
+      - a1
+      - a2
+      MET1:
+      - r1
+      - r2
+      DEF1:
+      - M
+      - M
+      DEF2:
+      - P
+      - P
+      IMM1:
+      - I
+      - i
+  LAB-F03:
+    focus: AQUALIS
+    genome:
+      BDY1:
+      - b0
+      - b1
+      SIZ1:
+      - s1
+      - s1
+      APP1:
+      - a2
+      - a2
+      TAI1:
+      - t2
+      - t1
+      COL1:
+      - c2
+      - c2
+      SEC1:
+      - d0
+      - d1
+      PAT1:
+      - p1
+      - p2
+      GLW1:
+      - g0
+      - g1
+      EYE1:
+      - e2
+      - e3
+      EYS1:
+      - y0
+      - y1
+      SKN1:
+      - k0
+      - k0
+      MRK1:
+      - m0
+      - m1
+      AQU1:
+      - q2
+      - q1
+      CLD1:
+      - c0
+      - c1
+      HOT1:
+      - h0
+      - h0
+      PHO1:
+      - f0
+      - f1
+      ENR1:
+      - n1
+      - n2
+      END1:
+      - d1
+      - d2
+      CUR1:
+      - u1
+      - u2
+      CAL1:
+      - a1
+      - a1
+      MET1:
+      - r1
+      - r2
+      DEF1:
+      - M
+      - m
+      DEF2:
+      - P
+      - P
+      IMM1:
+      - I
+      - I
+  LAB-F04:
+    focus: CRYALIS
+    genome:
+      BDY1:
+      - b1
+      - b2
+      SIZ1:
+      - s1
+      - s2
+      APP1:
+      - a0
+      - a1
+      TAI1:
+      - t1
+      - t2
+      COL1:
+      - c2
+      - c0
+      SEC1:
+      - d0
+      - d2
+      PAT1:
+      - p0
+      - p2
+      GLW1:
+      - g0
+      - g1
+      EYE1:
+      - e2
+      - e2
+      EYS1:
+      - y1
+      - y1
+      SKN1:
+      - k1
+      - k1
+      MRK1:
+      - m0
+      - m2
+      AQU1:
+      - q0
+      - q1
+      CLD1:
+      - c2
+      - c1
+      HOT1:
+      - h0
+      - h0
+      PHO1:
+      - f0
+      - f1
+      ENR1:
+      - n1
+      - n2
+      END1:
+      - d1
+      - d2
+      CUR1:
+      - u0
+      - u1
+      CAL1:
+      - a1
+      - a2
+      MET1:
+      - r1
+      - r1
+      DEF1:
+      - M
+      - M
+      DEF2:
+      - P
+      - P
+      IMM1:
+      - I
+      - i
+  LAB-F05:
+    focus: PYRA
+    genome:
+      BDY1:
+      - b0
+      - b2
+      SIZ1:
+      - s0
+      - s1
+      APP1:
+      - a0
+      - a0
+      TAI1:
+      - t0
+      - t2
+      COL1:
+      - c1
+      - c1
+      SEC1:
+      - d1
+      - d2
+      PAT1:
+      - p1
+      - p1
+      GLW1:
+      - g0
+      - g0
+      EYE1:
+      - e2
+      - e2
+      EYS1:
+      - y0
+      - y2
+      SKN1:
+      - k0
+      - k0
+      MRK1:
+      - m1
+      - m2
+      AQU1:
+      - q0
+      - q0
+      CLD1:
+      - c0
+      - c0
+      HOT1:
+      - h2
+      - h1
+      PHO1:
+      - f0
+      - f0
+      ENR1:
+      - n1
+      - n1
+      END1:
+      - d1
+      - d2
+      CUR1:
+      - u1
+      - u2
+      CAL1:
+      - a0
+      - a1
+      MET1:
+      - r1
+      - r2
+      DEF1:
+      - M
+      - M
+      DEF2:
+      - P
+      - p
+      IMM1:
+      - I
+      - I
+  LAB-F06:
+    focus: LUNARI
+    genome:
+      BDY1:
+      - b0
+      - b1
+      SIZ1:
+      - s0
+      - s1
+      APP1:
+      - a0
+      - a0
+      TAI1:
+      - t1
+      - t1
+      COL1:
+      - c2
+      - c0
+      SEC1:
+      - d2
+      - d0
+      PAT1:
+      - p0
+      - p1
+      GLW1:
+      - g2
+      - g1
+      EYE1:
+      - e2
+      - e3
+      EYS1:
+      - y2
+      - y1
+      SKN1:
+      - k0
+      - k1
+      MRK1:
+      - m2
+      - m0
+      AQU1:
+      - q0
+      - q1
+      CLD1:
+      - c0
+      - c1
+      HOT1:
+      - h0
+      - h1
+      PHO1:
+      - f0
+      - f0
+      ENR1:
+      - n1
+      - n2
+      END1:
+      - d1
+      - d1
+      CUR1:
+      - u2
+      - u2
+      CAL1:
+      - a0
+      - a1
+      MET1:
+      - r1
+      - r1
+      DEF1:
+      - M
+      - m
+      DEF2:
+      - P
+      - P
+      IMM1:
+      - I
+      - I
+  LAB-F07:
+    focus: GENERALIS_DIVERSE
+    genome:
+      BDY1:
+      - b0
+      - b2
+      SIZ1:
+      - s0
+      - s2
+      APP1:
+      - a1
+      - a2
+      TAI1:
+      - t0
+      - t2
+      COL1:
+      - c0
+      - c2
+      SEC1:
+      - d0
+      - d2
+      PAT1:
+      - p1
+      - p2
+      GLW1:
+      - g0
+      - g1
+      EYE1:
+      - e1
+      - e3
+      EYS1:
+      - y0
+      - y2
+      SKN1:
+      - k0
+      - k2
+      MRK1:
+      - m0
+      - m2
+      AQU1:
+      - q0
+      - q2
+      CLD1:
+      - c0
+      - c2
+      HOT1:
+      - h0
+      - h2
+      PHO1:
+      - f0
+      - f2
+      ENR1:
+      - n0
+      - n2
+      END1:
+      - d0
+      - d2
+      CUR1:
+      - u0
+      - u2
+      CAL1:
+      - a0
+      - a2
+      MET1:
+      - r0
+      - r2
+      DEF1:
+      - M
+      - M
+      DEF2:
+      - P
+      - P
+      IMM1:
+      - I
+      - I
+  LAB-F08:
+    focus: GENERALIS_CARRIER_TUTORIAL
+    genome:
+      BDY1:
+      - b1
+      - b1
+      SIZ1:
+      - s1
+      - s1
+      APP1:
+      - a0
+      - a1
+      TAI1:
+      - t0
+      - t1
+      COL1:
+      - c0
+      - c1
+      SEC1:
+      - d0
+      - d1
+      PAT1:
+      - p0
+      - p1
+      GLW1:
+      - g0
+      - g0
+      EYE1:
+      - e2
+      - e2
+      EYS1:
+      - y0
+      - y1
+      SKN1:
+      - k0
+      - k1
+      MRK1:
+      - m0
+      - m1
+      AQU1:
+      - q0
+      - q1
+      CLD1:
+      - c0
+      - c1
+      HOT1:
+      - h0
+      - h1
+      PHO1:
+      - f0
+      - f1
+      ENR1:
+      - n1
+      - n1
+      END1:
+      - d1
+      - d1
+      CUR1:
+      - u1
+      - u1
+      CAL1:
+      - a1
+      - a1
+      MET1:
+      - r1
+      - r1
+      DEF1:
+      - M
+      - m
+      DEF2:
+      - P
+      - p
+      IMM1:
+      - I
+      - i
+derived_stats:
+  body_scale: clamp(1.0 + SIZ1.effect(a1) + SIZ1.effect(a2), 0.84, 1.16)
+  aquatic: clamp(20 + AQU1.effects + APP1.fins_bonus, 0, 100)
+  cold: clamp(20 + CLD1.effects + SKN1.fuzzy_bonus + body_size_cold_modifier, 0, 100)
+  heat: clamp(20 + HOT1.effects + SKN1.smooth_bonus + body_size_heat_modifier, 0,
+    100)
+  photosynthesis: clamp(PHO1.effects + APP1.leaves_bonus + SKN1.veined_bonus, 0, 100)
+  metabolism: clamp(50 + MET1.effects, 0, 100)
+  curiosity: clamp(50 + CUR1.effects, 0, 100)
+  calmness: clamp(50 + CAL1.effects, 0, 100)
+  heterozygosity: heterozygous_loci / 24
+  energy_capacity: 100 + ENR1.effects + round((metabolism-50)*0.20) + size_modifier
+    - health_penalty
+  endurance: clamp(50 + END1.effects + 0.10*(energy_capacity-100) + heterozygosity_bonus
+    - health_penalty, 0, 100)
+  fertility: clamp(70 + (metabolism-50)*0.30 + heterozygosity_bonus - health_penalty
+    - inbreeding_modifier, 10, 100)
+  maturation_hours: clamp(8 - metabolism_modifier + size_modifier + health_modifier,
+    5, 14)
